@@ -1,3 +1,4 @@
+
 # Manual Tecnico
 
 ## Diseño y desarrollo del sistema para la administracion y gestion Veterinaria 
@@ -25,7 +26,7 @@
 
 ## Universidad pontificia javeriana Cali
 ## Departamento de ingerierias
-## Ingenieria De Sistemas Y Computación
+## Ingeniria De Sistemas Y Computación
 ## 2022
 
   <br/><br/><br/>
@@ -40,7 +41,7 @@
 * Requisitos del sistema
 * Herramientas utilizadas para el desarrollo
 * diagrama UML
-*
+* Casos de uso
       
   <br/><br/><br/>
   <br/><br/><br/>
@@ -114,3 +115,32 @@ es un editor de código fuente desarrollado por Microsoft para Windows, Linux, m
 
 
 ![](https://github.com/JuanRx19/ClinicaVeterinaria/blob/main/ClinicaVeterinariUML.drawio.png?raw=true)
+
+
+
+  <br/><br/><br/>
+  <br/><br/><br/>
+  <br/><br/><br/>
+  
+## Casos de uso
+<br/><br/><br/>
+
+| Caso de uso:  | Registrar Cliente |
+| ------------- |-------------|
+| Actores:       | Administrador|
+| Descripción   |el administrador registra y almacena el nombre completo, email, documento de identidad y teléfono de cada propietario responsable |
+
+<br/><br/><br/>
+
+| Caso de uso:  | Registrar mascota |
+| ------------- |-------------|
+| Actores:       | Administrador|
+| Descripción   |el administrador registra y almacena la información de cada mascota. Esta información consiste en la raza, el tipo: perro  gato  otro, el peso, la edad, tipo de sangre, el nombre, la identificación, status: viva muerta. Si la mascota ha fallecido también registra la fecha de defunción. |
+  
+<br/><br/><br/>
+
+
+ | Caso de uso:  | asignar mascota |
+| ------------- |-------------|
+| Actores:       | Administrador|
+| Descripción   | el administrador asigna mascota a los clientes | 
