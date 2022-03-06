@@ -1,3 +1,4 @@
+
 # Manual Tecnico
 
 ## Diseño y desarrollo del sistema para la administracion y gestion Veterinaria 
@@ -242,6 +243,8 @@ El sistema podra cambiar el status a las mascotas dandole dos tipos de esta (VIV
 <br/><br/><br/>
 
 
-## Entradas y Salidas
+## Métodos, Entradas y Salidas
 <br/><br/><br/>
+
+
 
