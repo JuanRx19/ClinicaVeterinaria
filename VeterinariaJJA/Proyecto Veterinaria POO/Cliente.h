@@ -14,6 +14,8 @@ class Cliente{
         string email;
 
     public:
+        Cliente();
+        Cliente(double id, string nombre, string email, double telefono);
         void setTelefono(double identificacion);
         void setIdentificacion(double identificacion);
         void setNombre(string nombre);

@@ -1,69 +1,21 @@
-#include <Mascota.h>
-#include <Cliente.h>
+#include "clienteXmascota.h"
 
-
-
-string Mascota::getNombre()
+ClienteXMascota::ClienteXMascota()
 {
-    return this->nombre;
 }
 
-string Mascota::getFechaDi()
+ClienteXMascota::ClienteXMascota(Cliente cliente, Mascota mascota)
 {
-    return this->fechaDi;
+    this->cliente = cliente;
+    this->mascota = mascota;
 }
 
-string Mascota::getTipoSangre()
+Cliente ClienteXMascota::getCliente()
 {
-    return this->tipoSangre;
+    return this->cliente;
 }
 
-string Mascota::getTipo()
+Mascota ClienteXMascota::getMascota()
 {
-    return this->tipo;
-}
-
-string Mascota::getRaza()
-{
-    return this->raza;
-}
-
-float Mascota::getPeso()
-{
-    return this->peso;
-}
-
-int Mascota::getEdad()
-{
-    return this->edad;
-}
-
-int Mascota::getStatus()
-{
-    return this->status;
-}
-
-double Mascota::getIdentificacion()
-{
-    return this->identificacion;
-}
-
-double Cliente::getIdentificacion()
-{
-    return this->identificacion;
-}
-
-string Cliente::getNombre()
-{
-    return this->nombre;
-}
-
-double Cliente::getTelefono()
-{
-    return this->telefono;
-}
-
-string Cliente::getEmail()
-{
-    return this->email;
+    return this->mascota;
 }

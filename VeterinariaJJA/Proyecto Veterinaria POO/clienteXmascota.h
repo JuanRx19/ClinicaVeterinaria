@@ -1,18 +1,24 @@
 #ifndef CLIENTEXMASCOTA_H
-#define CLIENTEXMASCOTA_H 
+#define CLIENTEXMASCOTA_H
 
 #include <iostream>
-#include <Mascota.h>
-#include <Cliente.h>
+#include "Mascota.h"
+#include "Cliente.h"
 
-using std::string; 
+using std::string;
 
-class clienteXmascota{
-    private:
-    Mascota mascota;
+class ClienteXMascota
+{
+private:
     Cliente cliente;
+    Mascota mascota;
 
-    public:
+public:
+    ClienteXMascota();
+    ClienteXMascota(Cliente cliente, Mascota mascota);
+    Cliente getCliente();
+    Mascota getMascota();
+    /*public:
     string getNombre();
     string getFechaDi();
     string getTipoSangre();
@@ -25,8 +31,7 @@ class clienteXmascota{
     double getTelefono();
     double getIdentificacion();
     string getNombre();
-    string getEmail();
-
+    string getEmail();*/
 };
 
 #endif

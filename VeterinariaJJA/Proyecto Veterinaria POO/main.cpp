@@ -11,27 +11,18 @@ void menu(Directorio directorio)
     int opc2 = 0;
     do
     {
-        cout << "Bienvenidos°°°°°    \n";
-        cout << "1. Mostrar informacion clientes \n";
-        cout << "2. Mostrar informacion propietarios con parqueadero \n";
-        cout << "3. Mostrar numero de propietarios con parqueadero \n";
-        cout << "4. Mostrar numero de propietarios sin parqueadero \n";
-        cout << "5. Mostrar informacion de propiedades con parqueadero \n";
-        cout << "6. Mostrar numero de propiedades con parqueadero \n";
-        cout << "7. Mostrar numero de propiedades sin parqueadero \n";
-        cout << "8. Mostrar informacion de propiedades con area mayor a 50mts \n";
-        cout << "9. Mostrar propietarios con propiedades desocupadas \n";
-        cout << "10. Mostrar propiedades por medio del piso \n";
-        cout << "11. Mostrar las propiedades que tienen un area menor 50 \n";
-        cout << "12. Mostrar dinero recaudado \n";
-        cout << "0. Salir \n";
+        cout << "============================\n";
+        cout << "     Clinica Veterinaria\n";
+        cout << "============================\n";
+        cout << "1. Crear cliente o propietario \n";
 
         cin >> opc;
 
-        switch (opc)
+        switch(opc)
         {
         case 1:
-            directorio.imprimirCantidaPropietarios();
+            directorio.crearCliente();
+            cout << "Cliente creado exitosamente\n";
             break;
         case 2:
             break;
@@ -70,7 +61,6 @@ int main()
     Directorio directorio;
 
     // Inicializar datos
-    directorio.inicializarDatos();
     menu(directorio);
 
     // TODO: Imprimir la informción de los propietarios que tengan parqueadero solamente

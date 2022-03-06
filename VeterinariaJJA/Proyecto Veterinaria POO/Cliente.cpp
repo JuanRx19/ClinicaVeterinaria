@@ -1,6 +1,19 @@
 #include <iostream>
 #include "Cliente.h"
 
+Cliente::Cliente(){
+    telefono = -1;
+    identificacion = -1;
+    nombre = "";
+    email = "";
+}
+
+Cliente::Cliente(double id, string nombre, string email, double telefono){
+    this->identificacion = id;
+    this->nombre = nombre;
+    this->email = email;
+    this->telefono = telefono;
+}
 
 void Cliente::setIdentificacion(double Identificacion)
 {
