@@ -1,3 +1,4 @@
+
 # Manual Tecnico
 
 ## Diseño y desarrollo del sistema para la administracion y gestion Veterinaria 
@@ -41,6 +42,8 @@
 * Herramientas utilizadas para el desarrollo
 * diagrama UML
 * Casos de uso
+* Principales funcionalidades
+* Entradas y Salidas
       
   <br/><br/><br/>
   <br/><br/><br/>
@@ -192,3 +195,26 @@ es un editor de código fuente desarrollado por Microsoft para Windows, Linux, m
 | ------------- |-------------|
 | Actores:       | Administrador|
 | Descripción   | el administrador podra eliminar propietarios de las mascotas | 
+ 
+ 
+<br/><br/><br/>
+<br/><br/><br/>
+<br/><br/><br/>
+ 
+## Principales funcionalidades
+<br/><br/><br/>  
+
+
+
+
+
+<br/><br/><br/>
+<br/><br/><br/>
+<br/><br/><br/>
+
+
+## Entradas y Salidas
+<br/><br/><br/>
+
+
+
