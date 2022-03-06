@@ -1,4 +1,3 @@
-
 # Manual Tecnico
 
 ## Diseño y desarrollo del sistema para la administracion y gestion Veterinaria 
@@ -204,6 +203,36 @@ es un editor de código fuente desarrollado por Microsoft para Windows, Linux, m
 ## Principales funcionalidades
 <br/><br/><br/>  
 
+* Registrar cliente.
+
+El sistema podra registar cliente a la base de el programa donde almacenara los datos principales de este como nombre completo , documento de identificacion, email y telefono de contacto.
+
+* Registrar mascota
+
+El sistema podra registrar mascotas a la base de el programa donde registrara y almacenara la informacion de cada mascota Esta información consiste en la raza, el tipo: perro gato otro, el peso, la edad, tipo de sangre, el nombre, la identificación, status: viva muerta. Si la mascota ha fallecido también registra la fecha de defunción.
+
+* Asignar mascotas
+
+El sistema podra asignar mascotas a los clientes que quedan con estado de propietario de dicha mascota para poder asociarlos entre si.
+
+* Verificar clientes
+
+El sistema podra verificar la informacion del sistema y cuantos hay en ese momento registrados dentro del programa.
+
+* informacion de los clientes
+
+El sistema podra listar la informacion disponible de cada cliente y modificar cada una de ellas.
+
+* Verificar mascotas
+
+El sistema podra listar la informacion disponible de cada mascota y modificar cada una de ellas.
+
+* Asignar propietario
+
+El sistema podra asignar un nuevo propietario a una mascota tanto como eliminar este mismo de otra mascota.
+
+* Cambiar status de la mascota.
+El sistema podra cambiar el status a las mascotas dandole dos tipos de esta (VIVA O MUERTA)
 
 
 
@@ -215,6 +244,4 @@ es un editor de código fuente desarrollado por Microsoft para Windows, Linux, m
 
 ## Entradas y Salidas
 <br/><br/><br/>
-
-
 
