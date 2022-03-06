@@ -1,4 +1,3 @@
-
 # Manual Tecnico
 
 ## Diseño y desarrollo del sistema para la administracion y gestion Veterinaria 
@@ -144,3 +143,52 @@ es un editor de código fuente desarrollado por Microsoft para Windows, Linux, m
 | ------------- |-------------|
 | Actores:       | Administrador|
 | Descripción   | el administrador asigna mascota a los clientes | 
+
+<br/><br/><br/>
+
+
+ | Caso de uso:  | verificar clientes |
+| ------------- |-------------|
+| Actores:       | Administrador|
+| Descripción   | el administrador verifica cuantos propietarios se encuentran registrados en el directorio | 
+
+<br/><br/><br/>
+
+
+ | Caso de uso:  | listar informacion clientes |
+| ------------- |-------------|
+| Actores:       | Administrador|
+| Descripción   | el administrador puede listar la informacion disponible de cada cliente |
+
+
+<br/><br/><br/>
+
+
+ | Caso de uso:  | listar mascotas |
+| ------------- |-------------|
+| Actores:       | Administrador|
+| Descripción   | el administrador puede listar la informacion de cada mascota incluyendo los datos de su dueño |
+
+<br/><br/><br/>
+
+
+ | Caso de uso:  | asignar propietario |
+| ------------- |-------------|
+| Actores:       | Administrador|
+| Descripción   | el administrador puede asignar mascota a nuevos cleintes inscritos en el sistema | 
+
+<br/><br/><br/>
+
+
+ | Caso de uso:  | cambiar status mascota |
+| ------------- |-------------|
+| Actores:       | Administrador|
+| Descripción   | el administrador asigna el starus que se encuentra la mascota ( viva o muerta |
+
+<br/><br/><br/>
+
+
+ | Caso de uso:  | eliminar propietario |
+| ------------- |-------------|
+| Actores:       | Administrador|
+| Descripción   | el administrador podra eliminar propietarios de las mascotas | 
