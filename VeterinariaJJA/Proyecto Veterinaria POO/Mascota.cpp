@@ -1,6 +1,6 @@
 #include <iostream>
 #include "Mascota.h"
-#include "Mascota.h"
+
 
 
 
