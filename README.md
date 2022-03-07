@@ -51,7 +51,7 @@
         
 ## Presentación
 
-*el siguiente manual tecnico guiara a los usuarios que haran soporte a el sistema de gestion de la veteriania, el cual les informara los requerimientos y la estructura que se utilizaron para la contruccion de este sistema, el desarrollo de este programa de escritorio el cual muestra las herramientas necesarios para la contrucción y funcionalidad del sistema.
+* El siguiente manual tecnico guiara a los usuarios que haran soporte a el sistema de gestion de la veteriania, el cual les informara los requerimientos y la estructura que se utilizaron para la contruccion de este sistema, el desarrollo de este programa de escritorio el cual muestra las herramientas necesarios para la contrucción y funcionalidad del sistema.
 
   <br/><br/><br/>
   <br/><br/><br/>
@@ -67,9 +67,9 @@
 
 ## Procesos
 
-#### procesos de entrada.
+#### Procesos de entrada.
 
-#### procesos de salida.
+#### Procesos de salida.
 
   <br/><br/><br/>
   <br/><br/><br/>
