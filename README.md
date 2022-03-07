@@ -25,7 +25,7 @@
 
 
 ## Universidad Pontificia Javeriana Cali
-## Departamento de ingerierias
+## Departamento de Ingerieria
 ## Ingeniria De Sistemas Y Computación
 ## 2022
 
