@@ -15,6 +15,13 @@ Cliente::Cliente(double id, string nombre, string email, double telefono){
     this->telefono = telefono;
 }
 
+void Cliente::mostrarCliente(){
+    cout << "Identificacion: " << identificacion << "\n";
+    cout << "Nombre: " << nombre << "\n";
+    cout << "Email: " << email << "\n";
+    cout << "Telefono: " << telefono << "\n";
+}
+
 void Cliente::setIdentificacion(double Identificacion)
 {
     this->identificacion = identificacion;

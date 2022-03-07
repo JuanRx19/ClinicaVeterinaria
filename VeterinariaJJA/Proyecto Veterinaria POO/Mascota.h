@@ -22,6 +22,7 @@ public:
     Mascota();
     Mascota(double id, string nombre, int tipoAnimal, float peso, int edad, string raza, string tipoDeSangre);
     Mascota(double id, string nombre, int tipoAnimal, float peso, int edad, string raza, string tipoDeSangre, int estado, string dia, string mes, string anio);
+    void mostrarMascota();
     void setNombre(string nombre);
     void setTipoSangre(string tipoSangre);
     void setTipoAnimal(string tipo);

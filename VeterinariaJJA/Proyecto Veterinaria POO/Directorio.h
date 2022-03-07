@@ -15,6 +15,8 @@ class Directorio
 private:
     vector<Cliente> clientes;
     vector<Mascota> mascotas;
+    map<double, vector<int>> clientexmascota;
+    map<double, vector<int>> mascotaxcliente;
 
 public:
     void crearCliente();
@@ -25,6 +27,9 @@ public:
     void eliminarCliente();
     void modificarClientes();
     void asociarClienteXMascota();
+    void imprimirMascotasCliente();
+    void asociarMascotaXCliente();
+    void imprimirClientesMascota();
 };
 
 #endif

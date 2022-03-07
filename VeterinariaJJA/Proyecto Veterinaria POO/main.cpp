@@ -21,6 +21,9 @@ void menu(Directorio directorio)
         cout << "5. Eliminar cliente \n";
         cout << "6. Imprimir clientes \n";
         cout << "7. Asignar mascota a cliente \n";
+        cout << "8. Imprimir las mascotas de algun cliente \n";
+        cout << "9. Asignar cliente a mascota \n";
+        cout << "10. Imprimir los clientes de alguna mascota \n";
         cout << "0. Salir \n";
 
         cin >> opc;
@@ -53,10 +56,13 @@ void menu(Directorio directorio)
             directorio.asociarClienteXMascota();
             break;
         case 8:
+            directorio.imprimirMascotasCliente();
             break;
         case 9:
+            directorio.asociarMascotaXCliente();
             break;
         case 10:
+            directorio.imprimirClientesMascota();
             break;
         case 11:
             break;

@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-
+using std::cout;
 using std::string; 
 
 class Cliente{
@@ -20,6 +20,7 @@ class Cliente{
         void setIdentificacion(double identificacion);
         void setNombre(string nombre);
         void setEmail(string email);
+        void mostrarCliente();
         double getTelefono();
         double getIdentificacion();
         string getNombre();

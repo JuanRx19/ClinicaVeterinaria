@@ -15,8 +15,6 @@ class ClienteXMascota
 private:
     Cliente cliente;
     Mascota mascota;
-    map<double, vector<int>> clientexmascota;
-    map<double, vector<int>> mascotaxcliente;
 
 public:
     ClienteXMascota();

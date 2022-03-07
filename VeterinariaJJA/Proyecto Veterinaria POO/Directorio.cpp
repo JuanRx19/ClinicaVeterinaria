@@ -3,6 +3,7 @@
 
 void Directorio::crearCliente()
 {
+    int opc = 0;
     double id, telefono;
     string nombreCompleto, email;
     // Pedimos los datos
@@ -15,14 +16,29 @@ void Directorio::crearCliente()
     cout << "Por favor ingrese el telefono: ";
     cin >> telefono;
 
-    clientes.push_back(Cliente(id, nombreCompleto, email, telefono));
+    for (int i = 0; i < clientes.size(); i++)
+    {
+        if (id == clientes[i].getIdentificacion())
+        {
+            opc = 1;
+        }
+    }
+    if (opc == 0)
+    {
+        clientes.push_back(Cliente(id, nombreCompleto, email, telefono));
+        clientexmascota[id];
+    }
+    else
+    {
+        cout << "La identificacion ya existe, por favor intentalo de nuevo \n";
+    }
 }
 
 void Directorio::crearMascota()
 {
     double id;
     string raza, tipoDeSangre, nombre, dia, mes, anio;
-    int tipoAnimal, edad, opc;
+    int tipoAnimal, edad, opc = 0, opc2;
     float peso;
 
     cout << "Por favor ingrese la identificacion de la mascota: ";
@@ -40,20 +56,36 @@ void Directorio::crearMascota()
     cout << "Por favor ingrese el tipo de sangre: ";
     cin >> tipoDeSangre;
     cout << "En que estado se encuentra la mascota (0. Viva/1.Muerta): ";
-    cin >> opc;
+    cin >> opc2;
+
+    for (int i = 0; i < mascotas.size(); i++)
+    {
+        if (id == mascotas[i].getIdentificacion())
+        {
+            opc = 1;
+        }
+    }
     if (opc == 0)
     {
-        mascotas.push_back(Mascota(id, nombre, tipoAnimal, peso, edad, raza, tipoDeSangre));
+        if (opc2 == 0)
+        {
+            mascotas.push_back(Mascota(id, nombre, tipoAnimal, peso, edad, raza, tipoDeSangre));
+        }
+        else
+        {
+            cout << "Por favor ingrese el dia de defuncion: ";
+            cin >> dia;
+            cout << "Por favor ingrese el mes de defuncion: ";
+            cin >> mes;
+            cout << "Por favor ingrese el anio de defuncion: ";
+            cin >> anio;
+            mascotas.push_back(Mascota(id, nombre, tipoAnimal, peso, edad, raza, tipoDeSangre, 1, dia, mes, anio));
+        }
+        mascotaxcliente[id];
     }
     else
     {
-        cout << "Por favor ingrese el dia de defuncion: ";
-        cin >> dia;
-        cout << "Por favor ingrese el mes de defuncion: ";
-        cin >> mes;
-        cout << "Por favor ingrese el anio de defuncion: ";
-        cin >> anio;
-        mascotas.push_back(Mascota(id, nombre, tipoAnimal, peso, edad, raza, tipoDeSangre, 1, dia, mes, anio));
+        cout << "La identificacion ya existe, por favor intentalo de nuevo \n";
     }
 }
 
@@ -166,6 +198,86 @@ void Directorio::modificarClientes()
     cout << "\n";
 }
 
-void asociarClienteXMascota(){
-    
+void Directorio::asociarClienteXMascota()
+{
+    double id, idMascota;
+    cout << "Por favor digite la identificacion del cliente: ";
+    cin >> id;
+    for (int i = 0; i < clientes.size(); i++)
+    {
+        if (clientes[i].getIdentificacion() == id)
+        {
+            cout << "Por favor digite la identificacion de la mascota: ";
+            cin >> idMascota;
+            for (int y = 0; y < mascotas.size(); y++)
+            {
+                if (mascotas[y].getIdentificacion() == idMascota)
+                {
+                    clientexmascota[id].push_back(y);
+                    mascotaxcliente[idMascota].push_back(i);
+                    cout << "Asociado correctamente \n";
+                }
+            }
+        }
+    }
+}
+
+void Directorio::imprimirMascotasCliente()
+{
+    double id;
+    cout << "Por favor digite la identificacion del cliente a mostrar: ";
+    cin >> id;
+    for (int i = 0; i < clientes.size(); i++)
+    {
+        if (clientes[i].getIdentificacion() == id)
+        {
+            cout << clientexmascota[id].size();
+            for (int y = 0; y < clientexmascota[id].size(); y++)
+            {
+                mascotas[clientexmascota[id][y]].mostrarMascota();
+            }
+        }
+    }
+}
+
+void Directorio::asociarMascotaXCliente()
+{
+    double id, idCliente;
+    cout << "Por favor digite la identificacion de la mascota: ";
+    cin >> id;
+    for (int i = 0; i < mascotas.size(); i++)
+    {
+        if (mascotas[i].getIdentificacion() == id)
+        {
+            cout << "Por favor digite la identificacion del cliente: ";
+            cin >> idCliente;
+            for (int y = 0; y < clientes.size(); y++)
+            {
+                if (clientes[y].getIdentificacion() == idCliente)
+                {
+                    mascotaxcliente[id].push_back(y);
+                    clientexmascota[idCliente].push_back(i);
+                    cout << "Asociado correctamente \n";
+                }
+            }
+        }
+    }
+}
+
+void Directorio::imprimirClientesMascota()
+{
+    double id;
+    cout << "Por favor digite la identificacion del cliente a mostrar: ";
+    cin >> id;
+    for (int i = 0; i < mascotas.size(); i++)
+    {
+        if (mascotas[i].getIdentificacion() == id)
+        {
+            cout << mascotaxcliente[id].size();
+            for (int y = 0; y < mascotaxcliente[id].size(); y++)
+            {
+                clientes[mascotaxcliente[id][y]].mostrarCliente();
+            }
+        }
+    }
 }
