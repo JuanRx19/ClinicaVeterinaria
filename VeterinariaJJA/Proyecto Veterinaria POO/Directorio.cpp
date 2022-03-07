@@ -213,8 +213,8 @@ void Directorio::asociarClienteXMascota()
             {
                 if (mascotas[y].getIdentificacion() == idMascota)
                 {
-                    clientexmascota[id].push_back(y);
-                    mascotaxcliente[idMascota].push_back(i);
+                    clientexmascota[id].push_back(mascotas[y]);
+                    mascotaxcliente[idMascota].push_back(clientes[i]);
                     cout << "Asociado correctamente \n";
                 }
             }
@@ -231,10 +231,9 @@ void Directorio::imprimirMascotasCliente()
     {
         if (clientes[i].getIdentificacion() == id)
         {
-            cout << clientexmascota[id].size();
             for (int y = 0; y < clientexmascota[id].size(); y++)
             {
-                mascotas[clientexmascota[id][y]].mostrarMascota();
+                clientexmascota[id][y].mostrarMascota();
             }
         }
     }
@@ -255,8 +254,8 @@ void Directorio::asociarMascotaXCliente()
             {
                 if (clientes[y].getIdentificacion() == idCliente)
                 {
-                    mascotaxcliente[id].push_back(y);
-                    clientexmascota[idCliente].push_back(i);
+                    mascotaxcliente[id].push_back(clientes[y]);
+                    clientexmascota[idCliente].push_back(mascotas[i]);
                     cout << "Asociado correctamente \n";
                 }
             }
@@ -267,16 +266,15 @@ void Directorio::asociarMascotaXCliente()
 void Directorio::imprimirClientesMascota()
 {
     double id;
-    cout << "Por favor digite la identificacion del cliente a mostrar: ";
+    cout << "Por favor digite la identificacion de la mascota a mostrar: ";
     cin >> id;
     for (int i = 0; i < mascotas.size(); i++)
     {
         if (mascotas[i].getIdentificacion() == id)
         {
-            cout << mascotaxcliente[id].size();
             for (int y = 0; y < mascotaxcliente[id].size(); y++)
             {
-                clientes[mascotaxcliente[id][y]].mostrarCliente();
+                mascotaxcliente[id][y].mostrarCliente();
             }
         }
     }

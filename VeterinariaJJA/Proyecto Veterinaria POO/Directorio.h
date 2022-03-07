@@ -15,8 +15,8 @@ class Directorio
 private:
     vector<Cliente> clientes;
     vector<Mascota> mascotas;
-    map<double, vector<int>> clientexmascota;
-    map<double, vector<int>> mascotaxcliente;
+    map<double, vector<Mascota>> clientexmascota;
+    map<double, vector<Cliente>> mascotaxcliente;
 
 public:
     void crearCliente();
