@@ -4,6 +4,9 @@
 #include <iostream>
 #include "Mascota.h"
 #include "Cliente.h"
+#include <map>
+#include <vector>
+using namespace std;
 
 using std::string;
 
@@ -12,6 +15,8 @@ class ClienteXMascota
 private:
     Cliente cliente;
     Mascota mascota;
+    map<double, vector<int>> clientexmascota;
+    map<double, vector<int>> mascotaxcliente;
 
 public:
     ClienteXMascota();

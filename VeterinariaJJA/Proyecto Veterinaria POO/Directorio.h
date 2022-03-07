@@ -2,8 +2,7 @@
 #define DIRECTORIO_H
 
 #include <iostream>
-#include "Cliente.h"
-#include "Mascota.h"
+#include "clienteXmascota.h"
 #include <vector>
 
 using std::string;
@@ -25,6 +24,7 @@ public:
     void imprimirInformacionMascotas();
     void eliminarCliente();
     void modificarClientes();
+    void asociarClienteXMascota();
 };
 
 #endif

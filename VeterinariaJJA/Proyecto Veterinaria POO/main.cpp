@@ -20,6 +20,7 @@ void menu(Directorio directorio)
         cout << "4. Modificar cliente \n";
         cout << "5. Eliminar cliente \n";
         cout << "6. Imprimir clientes \n";
+        cout << "7. Asignar mascota a cliente \n";
         cout << "0. Salir \n";
 
         cin >> opc;
@@ -49,6 +50,7 @@ void menu(Directorio directorio)
             directorio.imprimirInformacionClientes();
             break;
         case 7:
+            directorio.asociarClienteXMascota();
             break;
         case 8:
             break;

@@ -165,3 +165,7 @@ void Directorio::modificarClientes()
     }
     cout << "\n";
 }
+
+void asociarClienteXMascota(){
+    
+}
