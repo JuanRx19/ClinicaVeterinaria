@@ -1,7 +1,7 @@
 
 # Manual Tecnico
 
-## Diseño y desarrollo del sistema para la administracion y gestion Veterinaria 
+## Desarrollo del sistema para la clinica veterinaria 
 
 <br/><br/><br/>
 <br/><br/><br/>
