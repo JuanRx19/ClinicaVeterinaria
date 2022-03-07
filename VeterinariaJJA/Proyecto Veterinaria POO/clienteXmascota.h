@@ -18,20 +18,6 @@ public:
     ClienteXMascota(Cliente cliente, Mascota mascota);
     Cliente getCliente();
     Mascota getMascota();
-    /*public:
-    string getNombre();
-    string getFechaDi();
-    string getTipoSangre();
-    string getTipo();
-    string getRaza();
-    float getPeso();
-    int getEdad();
-    int getStatus();
-    double getIdentificacion();
-    double getTelefono();
-    double getIdentificacion();
-    string getNombre();
-    string getEmail();*/
 };
 
 #endif

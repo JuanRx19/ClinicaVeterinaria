@@ -15,24 +15,38 @@ void menu(Directorio directorio)
         cout << "     Clinica Veterinaria\n";
         cout << "============================\n";
         cout << "1. Crear cliente o propietario \n";
+        cout << "2. Crear mascota \n";
+        cout << "3. Cantidad de clientes \n";
+        cout << "4. Modificar cliente \n";
+        cout << "5. Eliminar cliente \n";
+        cout << "6. Imprimir clientes \n";
+        cout << "0. Salir \n";
 
         cin >> opc;
 
-        switch(opc)
+        switch (opc)
         {
         case 1:
             directorio.crearCliente();
-            cout << "Cliente creado exitosamente\n";
+            cout << "Cliente creado correctamente\n";
             break;
         case 2:
+            directorio.crearMascota();
+            cout << "Mascota ingresada correctamente\n";
             break;
         case 3:
+            directorio.imprimirCantidadClientes();
             break;
         case 4:
+            directorio.modificarClientes();
+            cout << "Cliente modificado correctamente \n";
             break;
         case 5:
+            directorio.eliminarCliente();
+            cout << "Cliente eliminado correctamente \n";
             break;
         case 6:
+            directorio.imprimirInformacionClientes();
             break;
         case 7:
             break;

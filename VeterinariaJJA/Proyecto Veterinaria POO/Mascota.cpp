@@ -1,8 +1,43 @@
 #include <iostream>
 #include "Mascota.h"
 
+Mascota::Mascota()
+{
+    identificacion = -1;
+    nombre = "";
+    tipoAnimal = -1;
+    peso = -1;
+    edad = -1;
+    raza = "";
+    tipoSangre = "";
+    status = Status();
+}
 
+// Constructor para estado de la mascota vivo
+Mascota::Mascota(double id, string nombre, int tipoAnimal, float peso, int edad, string raza, string tipoDeSangre)
+{
+    this->identificacion = id;
+    this->nombre = nombre;
+    this->tipoAnimal = tipoAnimal;
+    this->peso = peso;
+    this->edad = edad;
+    this->raza = raza;
+    this->tipoSangre = tipoDeSangre;
+    this->status = Status(0);
+}
 
+// Constructor para estado de la mascota muerto
+Mascota::Mascota(double id, string nombre, int tipoAnimal, float peso, int edad, string raza, string tipoDeSangre, int estado, string dia, string mes, string anio)
+{
+    this->identificacion = id;
+    this->nombre = nombre;
+    this->tipoAnimal = tipoAnimal;
+    this->peso = peso;
+    this->edad = edad;
+    this->raza = raza;
+    this->tipoSangre = tipoDeSangre;
+    this->status = Status(1, dia, mes, anio);
+}
 
 void Mascota::setNombre(string nombre)
 {
@@ -12,16 +47,6 @@ void Mascota::setNombre(string nombre)
 string Mascota::getNombre()
 {
     return this->nombre;
-}
-
-void Mascota::setFechaDi(string fechaDi)
-{
-    this->fechaDi = fechaDi;
-}
-
-string Mascota::getFechaDi()
-{
-    return this->fechaDi;
 }
 
 void Mascota::setTipoSangre(string tipoSangre)
@@ -34,14 +59,14 @@ string Mascota::getTipoSangre()
     return this->tipoSangre;
 }
 
-void  Mascota::setTipo(string tipo)
+void Mascota::setTipoAnimal(string tipoAnimal)
 {
-    this->tipo = tipo;
+    this->tipoAnimal = tipoAnimal;
 }
 
-string Mascota::getTipo()
+string Mascota::getTipoAnimal()
 {
-    return this->tipo;
+    return this->tipoAnimal;
 }
 
 void Mascota::setRaza(string raza)
@@ -74,12 +99,12 @@ int Mascota::getEdad()
     return this->edad;
 }
 
-void Mascota::setStatus(int status)
+void Mascota::setStatus(Status status)
 {
     this->status = status;
 }
 
-int Mascota::getStatus()
+Status Mascota::getStatus()
 {
     return this->status;
 }
