@@ -1,4 +1,3 @@
-
 # Manual Tecnico
 
 ## Desarrollo del sistema para la clinica veterinaria 
@@ -246,5 +245,50 @@ El sistema podra cambiar el status a las mascotas dandole dos tipos de esta (VIV
 ## Métodos, Entradas y Salidas
 <br/><br/><br/>
 
+* Mascota.
+ 
+Entradas:
+* nombre
+* tipo de sangre
+* tipo de animal
+* raza
+* peso
+* edad
+* identificación
+* status
 
 
+Salidas:
+* nombre
+* tipo de sangre
+* tipo de animal
+* raza
+* peso
+* edad
+* identificación
+* status
+
+
+*  Cliente.
+
+Entrada:
+* nombre
+* identificación
+* telefono
+* email
+
+Salida:
+* nombre
+* identificación
+* telefono
+* email
+
+* Status.
+
+Entrada:
+* estado
+* fecha de defunció
+
+Salida:
+* estado
+* fecha de defunció
