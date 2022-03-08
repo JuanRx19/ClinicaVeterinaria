@@ -134,10 +134,47 @@ void Directorio::imprimirInformacionMascotas()
     }
 }
 
+void Directorio::eliminarClienteMascota()
+{
+    map<double, vector<Cliente> >::iterator iter;
+    double idBuscar;
+    double idMascota;
+    int pos;
+    cout << "Por favor ingrese la identificacion del usuario que desea eliminar: ";
+    cin >> idBuscar;
+    cout << "Por favor ingrese el id de la mascota que lo desea eliminar: ";
+    cin >> idMascota;
+    for (int i = 0; i < clientes.size(); i++)
+    {
+        if (clientes[i].getIdentificacion() == idBuscar)
+        {
+            pos = i;
+            clientes.erase(clientes.begin() + pos);
+            break;
+        }
+    }
+    for(iter = mascotaxcliente.begin(); iter != mascotaxcliente.end(); iter++)
+    {
+        if(iter->first == idMascota)
+        {
+            for (int i = 0; i < iter->second.size(); i++)
+            {
+                if(iter->second[i].getIdentificacion() == idBuscar)
+                {
+                    iter->second.erase(iter->second.begin() + i);
+                    break;
+                }
+            }
+            
+        }
+    }
+}
+
 void Directorio::eliminarCliente()
 {
+    map<double, vector<Cliente> >::iterator iter;
     double idBuscar;
-    string idcliente;
+    double idMascota;
     int pos;
     cout << "Por favor ingrese la identificacion del usuario que desea eliminar: ";
     cin >> idBuscar;
@@ -148,6 +185,17 @@ void Directorio::eliminarCliente()
             pos = i;
             clientes.erase(clientes.begin() + pos);
             break;
+        }
+    }
+    for(iter = mascotaxcliente.begin(); iter != mascotaxcliente.end(); iter++)
+    {
+        for (int i = 0; i < iter->second.size(); i++)
+        {
+            if(iter->second[i].getIdentificacion() == idBuscar)
+            {
+                iter->second.erase(iter->second.begin() + i);
+                break;
+            }
         }
     }
 }
@@ -167,7 +215,7 @@ void Directorio::modificarClientes()
         if (clientes[i].getIdentificacion() == idBuscar)
         {
             cout << "Seleccione el valor que desea modificar: 1. nombre 2. email 3. id 4. telefono"
-                 << "\n";
+                << "\n";
             cin >> opc;
             switch (opc)
             {

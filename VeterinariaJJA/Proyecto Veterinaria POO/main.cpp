@@ -24,6 +24,7 @@ void menu(Directorio directorio)
         cout << "8. Imprimir las mascotas de algun cliente \n";
         cout << "9. Asignar cliente a mascota \n";
         cout << "10. Imprimir los clientes de alguna mascota \n";
+        cout << "11. Eliminar cliente de una mascota\n";
         cout << "0. Salir \n";
 
         cin >> opc;
@@ -65,6 +66,8 @@ void menu(Directorio directorio)
             directorio.imprimirClientesMascota();
             break;
         case 11:
+            directorio.eliminarClienteMascota();
+            cout << "Cliente eliminado de la mascota correctamente \n";
             break;
         case 12:
             break;
