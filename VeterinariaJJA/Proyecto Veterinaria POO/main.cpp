@@ -5,6 +5,7 @@ using std::cin;
 using std::cout;
 using std::string;
 
+// Metodo el cual genera un menú de opciones para ejecutar en la veterinaría.
 void menu(Directorio directorio)
 {
     int opc = 0;
@@ -73,7 +74,7 @@ void menu(Directorio directorio)
             break;
         case 12:
             directorio.cambiarStatus();
-            cout << "Status cambiado exitosamente \n";
+            cout << "Status cambiado correctamente \n";
             break;
         case 13:
             directorio.imprimirInformacionMascotas();
@@ -85,16 +86,7 @@ void menu(Directorio directorio)
 
 int main()
 {
-    /*string nombre;
-    cout << "Funciono, escribe tu nombre: ";
-    cin >> nombre;
-    cout << "Tu nombre es: " << nombre;*/
     Directorio directorio;
-
-    // Inicializar datos
     menu(directorio);
-
-    // TODO: Imprimir la informción de los propietarios que tengan parqueadero solamente
-    // Decir cuantos propietarios tienen propiedades con parqueadero.
     return 0;
 }

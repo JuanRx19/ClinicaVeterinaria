@@ -7,12 +7,14 @@ using std::cout;
 using std::string; 
 
 class Cliente{
+    //Atributos que corresponden a la clase cliente
     private:
         double telefono;
         double identificacion;
         string nombre;
         string email;
 
+    //Definicion de metodos publicos, constructores y sets/gets
     public:
         Cliente();
         Cliente(double id, string nombre, string email, double telefono);

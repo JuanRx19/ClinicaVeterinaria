@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Mascota.h"
 
+// Constructor para evitar posibles errores.
 Mascota::Mascota()
 {
     identificacion = -1;
@@ -39,14 +40,21 @@ Mascota::Mascota(double id, string nombre, int tipoAnimal, float peso, int edad,
     this->status = Status(1, dia, mes, anio);
 }
 
-void Mascota::mostrarMascota(){
+// Metodo para imprimir una mascota.
+void Mascota::mostrarMascota()
+{
     cout << "Identificacion: " << identificacion << "\n";
     cout << "Nombre: " << nombre << "\n";
-    if(tipoAnimal == "0"){
+    if (tipoAnimal == "0")
+    {
         cout << "Tipo de animal: Perro\n";
-    }else if(tipoAnimal == "1"){
+    }
+    else if (tipoAnimal == "1")
+    {
         cout << "Tipo de animal: Gato\n";
-    }else if(tipoAnimal == "2"){
+    }
+    else if (tipoAnimal == "2")
+    {
         cout << "Tipo de animal: Otro\n";
     }
     cout << "Peso: " << peso << "\n";
@@ -54,7 +62,6 @@ void Mascota::mostrarMascota(){
     cout << "Raza: " << raza << "\n";
     cout << "Tipo de sangre: " << tipoSangre << "\n";
     status.imprimirStatus();
-
 }
 
 void Mascota::setNombre(string nombre)

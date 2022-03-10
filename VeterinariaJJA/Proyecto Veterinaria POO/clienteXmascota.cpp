@@ -1,9 +1,11 @@
 #include "clienteXmascota.h"
 
+//Constructor para posibles errores
 ClienteXMascota::ClienteXMascota()
 {
 }
 
+//Constructor para ClienteXMascota
 ClienteXMascota::ClienteXMascota(Cliente cliente, Mascota mascota)
 {
     this->cliente = cliente;

@@ -1,8 +1,7 @@
 #include <iostream>
 #include "Directorio.h"
 
-
-
+// Primer metodo el cual me permite crear un cliente.
 void Directorio::crearCliente()
 {
     int opc = 0;
@@ -18,6 +17,7 @@ void Directorio::crearCliente()
     cout << "Por favor ingrese el telefono: ";
     cin >> telefono;
 
+    // Ciclo que recorre el vector clientes. Verifica si la id existe en clientes.
     for (int i = 0; i < clientes.size(); i++)
     {
         if (id == clientes[i].getIdentificacion())
@@ -27,7 +27,9 @@ void Directorio::crearCliente()
     }
     if (opc == 0)
     {
+        // Hacemos un pushback una vez se haya verificado que la id no se encuentre, llamamos el constructor y crea el objeto.
         clientes.push_back(Cliente(id, nombreCompleto, email, telefono));
+        // Aquí creamos un mapa cuya key es la id del cliente.
         clientexmascota[id];
     }
     else
@@ -36,51 +38,69 @@ void Directorio::crearCliente()
     }
 }
 
+// Metodo para cambiar el estado de una mascota.
 void Directorio::cambiarStatus()
 {
-    map<double, vector<Mascota> >::iterator iter;
+    map<double, vector<Mascota>>::iterator iter;
     double idBuscar;
-    int nuevoStatus, dia, mes, anio;
+    int nuevoStatus;
+    string dia, mes, anio;
     string fechaDifuncion;
     cout << "Ingrese la identificacion de la mascota a cambiar el status \n";
     cin >> idBuscar;
-    cout << "Digite el nuevo estado de la mascota 0/Vivo 1/Muerto";
+    cout << "Digite el nuevo estado de la mascota 0/Vivo 1/Muerto: ";
     cin >> nuevoStatus;
+    // Ciclo que me permite buscar nuestra mascota en el vector y actualizar su respectivo estado.
     for (int i = 0; i < mascotas.size(); i++)
     {
-        if( mascotas[i].getIdentificacion() == idBuscar )
+        // Verificamos su existencia.
+        if (mascotas[i].getIdentificacion() == idBuscar)
         {
-            if ( nuevoStatus == 0 )
+            if (nuevoStatus == 0)
             {
-            mascotas[i].getStatus().setEstado( nuevoStatus );
-            mascotas[i].getStatus().setFechaDefuncion( "" );
+                // Dependiendo del nuevo estado a asignar, crearemos un nuevo objeto de tipo status y este
+                // reemplazará el status que ya se encontraba relacionado
+                mascotas[i].setStatus(Status(0));
             }
             else
             {
-                mascotas[i].getStatus().setEstado( nuevoStatus );
+                // Contiene la misma funcion de la anterior posibilidad, pero en este caso es para cambiar el estado a muerto.
                 cout << "Por favor ingrese el dia de defuncion: ";
                 cin >> dia;
                 cout << "Por favor ingrese el mes de defuncion: ";
                 cin >> mes;
                 cout << "Por favor ingrese el anio de defuncion: ";
                 cin >> anio;
-                mascotas[i].getStatus().setFechaDefuncion( "" );
+                // Procede a reemplazar ejecutando el segundo constructor.
+                mascotas[i].setStatus(Status(1, dia, mes, anio));
             }
-        } 
+        }
     }
-    for(iter = clientexmascota.begin(); iter != clientexmascota.end(); iter++)
+    // Ciclo el cual me permite recorre mi mapa
+    for (iter = clientexmascota.begin(); iter != clientexmascota.end(); iter++)
     {
+        // Ciclo para extraer las posiciones del vector asociado a nuestro mapa : "iter":vector(Mascota)
         for (int i = 0; i < iter->second.size(); i++)
         {
-            if(iter->second[i].getIdentificacion() == idBuscar)
+            if (iter->second[i].getIdentificacion() == idBuscar)
             {
-                iter->second[i].setStatus( nuevoStatus );
+                if (nuevoStatus == 0)
+                {
+                    // Aquí hacemos lo mismo que con los vectores, pero actualizando la copia y llamando el constructor.
+                    iter->second[i].setStatus(Status(0));
+                }
+                else
+                {
+                    // Lo mismo que arriba pero con el segundo constructor.
+                    iter->second[i].setStatus(Status(1, dia, mes, anio));
+                }
                 break;
             }
         }
     }
 }
 
+// Metodo el cual me permite crear un objeto de tipo mascota.
 void Directorio::crearMascota()
 {
     double id;
@@ -105,6 +125,7 @@ void Directorio::crearMascota()
     cout << "En que estado se encuentra la mascota (0. Viva/1.Muerta): ";
     cin >> opc2;
 
+    // Ciclos para verificar la disponibilidad de la identificación
     for (int i = 0; i < mascotas.size(); i++)
     {
         if (id == mascotas[i].getIdentificacion())
@@ -112,14 +133,19 @@ void Directorio::crearMascota()
             opc = 1;
         }
     }
+
     if (opc == 0)
     {
         if (opc2 == 0)
         {
+            // Creacion del objeto Mascota e implementación en nuestro vector que almacena las clases. Ejecuta el constructor
+            // para mascotas con status vivo
             mascotas.push_back(Mascota(id, nombre, tipoAnimal, peso, edad, raza, tipoDeSangre));
         }
         else
         {
+            // Igualmente, creación del objeto mascota e implementación, pero con nuevos parametros para ejecutar el constructor
+            // con el estado muerto.
             cout << "Por favor ingrese el dia de defuncion: ";
             cin >> dia;
             cout << "Por favor ingrese el mes de defuncion: ";
@@ -128,6 +154,7 @@ void Directorio::crearMascota()
             cin >> anio;
             mascotas.push_back(Mascota(id, nombre, tipoAnimal, peso, edad, raza, tipoDeSangre, 1, dia, mes, anio));
         }
+        // Creacion de un mapa en el mapa mascotaxcliente, el cual asocia una mascota a diferentes dueños.
         mascotaxcliente[id];
     }
     else
@@ -136,6 +163,7 @@ void Directorio::crearMascota()
     }
 }
 
+// Imprime la cantidad de clientes en total.
 void Directorio::imprimirCantidadClientes()
 {
     cout << "Cantidad de clientes: ";
@@ -143,6 +171,7 @@ void Directorio::imprimirCantidadClientes()
     cout << "\n";
 }
 
+// Imprime con un ciclo con información de todos los clientes existentes.
 void Directorio::imprimirInformacionClientes()
 {
     cout << "Informacion de nuestros clientes: \n";
@@ -155,6 +184,7 @@ void Directorio::imprimirInformacionClientes()
     }
 }
 
+// Imprime con un ciclo con la información de todas las mascotas existentes.
 void Directorio::imprimirInformacionMascotas()
 {
     for (int i = 0; i < mascotas.size(); i++)
@@ -177,13 +207,14 @@ void Directorio::imprimirInformacionMascotas()
         }
         cout << "Tipo de sangre: " << mascotas[i].getTipoSangre() << "\n";
         cout << "Edad: " << mascotas[i].getEdad() << "\n";
+        // Como estado es un objeto, debemos acceder a este para imprimirlo.
         mascotas[i].getStatus().imprimirStatus();
     }
 }
-
+// Metodo para eliminar un cliente asociado a una mascota.
 void Directorio::eliminarClienteMascota()
 {
-    map<double, vector<Cliente> >::iterator iter;
+    map<double, vector<Cliente>>::iterator iter;
     double idBuscar;
     double idMascota;
     int pos;
@@ -191,40 +222,36 @@ void Directorio::eliminarClienteMascota()
     cin >> idBuscar;
     cout << "Por favor ingrese el id de la mascota que lo desea eliminar: ";
     cin >> idMascota;
-    for (int i = 0; i < clientes.size(); i++)
+
+    // Ciclo el cual me permite recorre el mapa buscando la mascota y su respectivo cliente a eliminar.
+    for (iter = mascotaxcliente.begin(); iter != mascotaxcliente.end(); iter++)
     {
-        if (clientes[i].getIdentificacion() == idBuscar)
-        {
-            pos = i;
-            clientes.erase(clientes.begin() + pos);
-            break;
-        }
-    }
-    for(iter = mascotaxcliente.begin(); iter != mascotaxcliente.end(); iter++)
-    {
-        if(iter->first == idMascota)
+        if (iter->first == idMascota)
         {
             for (int i = 0; i < iter->second.size(); i++)
             {
-                if(iter->second[i].getIdentificacion() == idBuscar)
+                if (iter->second[i].getIdentificacion() == idBuscar)
                 {
                     iter->second.erase(iter->second.begin() + i);
                     break;
                 }
             }
-            
         }
     }
 }
 
+// Metodo para eliminar un cliente de la veterinaria.
 void Directorio::eliminarCliente()
 {
-    map<double, vector<Cliente> >::iterator iter;
+    // Declaracion que me permite obtener las keys de mi mapa
+    map<double, vector<Cliente>>::iterator iter;
     double idBuscar;
     double idMascota;
     int pos;
     cout << "Por favor ingrese la identificacion del usuario que desea eliminar: ";
     cin >> idBuscar;
+
+    // Primer ciclo el cual me permite buscar el cliente en el vector clientes y lo elimina.
     for (int i = 0; i < clientes.size(); i++)
     {
         if (clientes[i].getIdentificacion() == idBuscar)
@@ -234,11 +261,14 @@ void Directorio::eliminarCliente()
             break;
         }
     }
-    for(iter = mascotaxcliente.begin(); iter != mascotaxcliente.end(); iter++)
+
+    // Ciclo el cual me permite recorrer el mapa de mascotasxcliente y elimina el cliente de cada mascota
+    // en la cual se encuentre asociada
+    for (iter = mascotaxcliente.begin(); iter != mascotaxcliente.end(); iter++)
     {
         for (int i = 0; i < iter->second.size(); i++)
         {
-            if(iter->second[i].getIdentificacion() == idBuscar)
+            if (iter->second[i].getIdentificacion() == idBuscar)
             {
                 iter->second.erase(iter->second.begin() + i);
                 break;
@@ -247,25 +277,30 @@ void Directorio::eliminarCliente()
     }
 }
 
+// Metodo para modificar un cliente.
 void Directorio::modificarClientes()
 {
+    map<double, vector<Cliente>>::iterator iter;
     double idBuscar;
     int opc;
     cout << "Por favor ingrese la identificacion del usuario que desea modificar: ";
     cin >> idBuscar;
     string nuevoNombre;
     double nuevoTelefono;
-    double nuevoId;
     string nuevoEmail;
+
+    // Ciclo el cual me permite buscar el id.
     for (int i = 0; i < clientes.size(); i++)
     {
         if (clientes[i].getIdentificacion() == idBuscar)
         {
-            cout << "Seleccione el valor que desea modificar: 1. nombre 2. email 3. id 4. telefono"
-                << "\n";
+            // Seleccionamos la opcion a modificar.
+            cout << "Seleccione el valor que desea modificar: 1. nombre 2. email 3. telefono"
+                 << "\n";
             cin >> opc;
             switch (opc)
             {
+            // En cada caso se setea la informacion y actualiza nuestros objetos.
             case 1:
                 cout << "Ingrese el nuevo nombre: ";
                 cin >> nuevoNombre;
@@ -277,11 +312,6 @@ void Directorio::modificarClientes()
                 clientes[i].setEmail(nuevoEmail);
                 break;
             case 3:
-                cout << "Ingrese el nuevo id: ";
-                cin >> nuevoId;
-                clientes[i].setIdentificacion(nuevoId);
-                break;
-            case 4:
                 cout << "Ingrese el nuevo telefono: ";
                 cin >> nuevoTelefono;
                 clientes[i].setTelefono(nuevoTelefono);
@@ -290,9 +320,34 @@ void Directorio::modificarClientes()
             break;
         }
     }
+    // Ciclo el cual me permite recorrer el mapa y el segundo ciclo recorre el vector asociado.
+    for (iter = mascotaxcliente.begin(); iter != mascotaxcliente.end(); iter++)
+    {
+        for (int i = 0; i < iter->second.size(); i++)
+        {
+            if (iter->second[i].getIdentificacion() == idBuscar)
+            {
+                // Al haber actualizado la informacion en el vector clientes, debo modificarla también en el mapa.
+                switch (opc)
+                {
+                case 1:
+                    iter->second[i].setNombre(nuevoNombre);
+                    break;
+                case 2:
+                    iter->second[i].setEmail(nuevoEmail);
+                    break;
+                case 3:
+                    iter->second[i].setTelefono(nuevoTelefono);
+                    break;
+                }
+                break;
+            }
+        }
+    }
     cout << "\n";
 }
 
+// Metodo el cual me permite crear una relación de mi cliente con las mascotas.
 void Directorio::asociarClienteXMascota()
 {
     double id, idMascota;
@@ -308,6 +363,8 @@ void Directorio::asociarClienteXMascota()
             {
                 if (mascotas[y].getIdentificacion() == idMascota)
                 {
+                    // Creamos una doble asociacion, ya que un cliente puede tener varias mascotas y una mascota
+                    // puede tener varios clientes. Por ende, generamos una doble relación.
                     clientexmascota[id].push_back(mascotas[y]);
                     mascotaxcliente[idMascota].push_back(clientes[i]);
                     cout << "Asociado correctamente \n";
@@ -317,6 +374,7 @@ void Directorio::asociarClienteXMascota()
     }
 }
 
+// Metodo el cual me permite imprimir las mascotas asociadas a algún cliente.
 void Directorio::imprimirMascotasCliente()
 {
     double id;
@@ -334,6 +392,7 @@ void Directorio::imprimirMascotasCliente()
     }
 }
 
+// Metodo el cual me permite realizar la asociacion de clientes a una mascota
 void Directorio::asociarMascotaXCliente()
 {
     double id, idCliente;
@@ -349,6 +408,7 @@ void Directorio::asociarMascotaXCliente()
             {
                 if (clientes[y].getIdentificacion() == idCliente)
                 {
+                    // Pasa igual que en el metodo ClienteXMascota. Las mascotas pueden tener varios dueños y viceversa.
                     mascotaxcliente[id].push_back(clientes[y]);
                     clientexmascota[idCliente].push_back(mascotas[i]);
                     cout << "Asociado correctamente \n";
@@ -358,6 +418,7 @@ void Directorio::asociarMascotaXCliente()
     }
 }
 
+// Metodo el cual me permite imprimir los clientes o propietarios que tiene una mascota.
 void Directorio::imprimirClientesMascota()
 {
     double id;

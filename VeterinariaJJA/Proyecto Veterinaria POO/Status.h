@@ -17,7 +17,7 @@ class Status{
         Status(int status);
         Status(int status, string dia, string mes, string anio);
         void imprimirStatus();
-        void setEstado(int identificacion);
+        void setEstado(int status);
         void setFechaDefuncion(string fechaDefuncion);
         int getEstado();
         string getFechaDefuncion();

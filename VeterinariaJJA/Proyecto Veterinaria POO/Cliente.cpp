@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Cliente.h"
 
+//Constructor para posibles errores
 Cliente::Cliente(){
     telefono = -1;
     identificacion = -1;
@@ -8,6 +9,7 @@ Cliente::Cliente(){
     email = "";
 }
 
+//Constructor de cliente, para crear objetos.
 Cliente::Cliente(double id, string nombre, string email, double telefono){
     this->identificacion = id;
     this->nombre = nombre;
@@ -15,6 +17,7 @@ Cliente::Cliente(double id, string nombre, string email, double telefono){
     this->telefono = telefono;
 }
 
+//Metodo el cual me permite imprimir un cliente.
 void Cliente::mostrarCliente(){
     cout << "Identificacion: " << identificacion << "\n";
     cout << "Nombre: " << nombre << "\n";
