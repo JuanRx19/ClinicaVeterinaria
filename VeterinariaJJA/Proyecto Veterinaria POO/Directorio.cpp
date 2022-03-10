@@ -1,6 +1,8 @@
 #include <iostream>
 #include "Directorio.h"
 
+
+
 void Directorio::crearCliente()
 {
     int opc = 0;
@@ -31,6 +33,51 @@ void Directorio::crearCliente()
     else
     {
         cout << "La identificacion ya existe, por favor intentalo de nuevo \n";
+    }
+}
+
+void Directorio::cambiarStatus()
+{
+    map<double, vector<Mascota> >::iterator iter;
+    double idBuscar;
+    int nuevoStatus, dia, mes, anio;
+    string fechaDifuncion;
+    cout << "Ingrese la identificacion de la mascota a cambiar el status \n";
+    cin >> idBuscar;
+    cout << "Digite el nuevo estado de la mascota 0/Vivo 1/Muerto";
+    cin >> nuevoStatus;
+    for (int i = 0; i < mascotas.size(); i++)
+    {
+        if( mascotas[i].getIdentificacion() == idBuscar )
+        {
+            if ( nuevoStatus == 0 )
+            {
+            mascotas[i].getStatus().setEstado( nuevoStatus );
+            mascotas[i].getStatus().setFechaDefuncion( "" );
+            }
+            else
+            {
+                mascotas[i].getStatus().setEstado( nuevoStatus );
+                cout << "Por favor ingrese el dia de defuncion: ";
+                cin >> dia;
+                cout << "Por favor ingrese el mes de defuncion: ";
+                cin >> mes;
+                cout << "Por favor ingrese el anio de defuncion: ";
+                cin >> anio;
+                mascotas[i].getStatus().setFechaDefuncion( "" );
+            }
+        } 
+    }
+    for(iter = clientexmascota.begin(); iter != clientexmascota.end(); iter++)
+    {
+        for (int i = 0; i < iter->second.size(); i++)
+        {
+            if(iter->second[i].getIdentificacion() == idBuscar)
+            {
+                iter->second[i].setStatus( nuevoStatus );
+                break;
+            }
+        }
     }
 }
 

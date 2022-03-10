@@ -4,6 +4,7 @@
 #include <iostream>
 #include "clienteXmascota.h"
 #include <vector>
+#include "Status.h"
 
 using std::string;
 using std::vector;
@@ -31,6 +32,7 @@ public:
     void imprimirMascotasCliente();
     void asociarMascotaXCliente();
     void imprimirClientesMascota();
+    void cambiarStatus();
 };
 
 #endif
